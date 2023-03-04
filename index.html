@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ryan's Personal Web Page</title>
+    <base href="/quiz1/" />
+    <link rel="stylesheet" type="text/css" href="index.css" />
+  </head>
+  <body>
+    <h1 class="Standard-Padding" id="welcome-header">
+      Welcome to Ryan's Web Page!
+    </h1>
+    <p class="Bold" class="Standard-Padding" id="intro-paragraph">
+      This is Ryan's personal website:
+    </p>
+    <div id="list-container">
+      <ul class="Bold" class="Standard-Padding" id="list-of-elements">
+        <li>Experience page</li>
+        <li>Education page</li>
+        <li><a href="image.html">Headshot</a> page</li>
+        <li><a href="table.html">Favorites</a> page</li>
+        <li>Projects page</li>
+      </ul>
+    </div>
+    <div>
+      <h2 class="Standard-Padding">Feedback Form</h2>
+    </div>
+    <div id="form-div">
+      <form>
+        <fieldset class="field-padding">
+          <legend class="Bold">Rate this Website</legend>
+          <select name="rating">
+            <option>1 (Great)</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5 (Terrible)</option>
+          </select>
+        </fieldset>
+        <fieldset class="flex-container" class="field-padding">
+          <legend class="Bold">What new pages would you like to see?</legend>
+          <input class="flex-item" type="checkbox" name="contact-page" />Contact Page
+          <input class="flex-item" type="checkbox" name="biography-page" />Biography Page
+          <input class="flex-item" type="checkbox" name="resume-page" />Resume Page
+          <div class="flex-item2" id="other-ideas">Other Ideas: <textarea id="other-ideas" rows="1" cols="50"></textarea></div> 
+        </fieldset>
+        <fieldset class="flex-container" class="field-padding">
+          <legend class="Bold">Submit &#38 Reset</legend>
+          <input class="flex-item" type="submit" value="Send Feedback" />
+          <input class="flex-item" type="reset" value="Reset Form" />
+        </fieldset>
+      </form>
+    </div>
+  </body>
+</html>
