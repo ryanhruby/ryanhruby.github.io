@@ -3,7 +3,7 @@
   <head>
     <title>Ryan's Personal Web Page</title>
     <link rel="stylesheet" type="text/css" href="css/index.css" />
-    <script src="scripts/emailValidate.js"></script>
+    <script src="scripts/feedbackFormProcess.js"></script>
   </head>
   <body>
     <h1 class="Standard-Padding" id="welcome-header">
@@ -25,7 +25,7 @@
       <h2 class="Standard-Padding">Feedback Form</h2>
     </div>
     <div id="form-div">
-      <form id="feedback-form" onsubmit="validateEmail()">
+      <form id="feedback-form" onsubmit="feedbackFormProcess()">
         <fieldset class="field-passing">
           <legend class="Bold">Your E-mail</legend>
           <input type="text" name="email" size="40">
@@ -45,7 +45,7 @@
           <input class="flex-item" type="checkbox" name="contact-page" />Contact Page
           <input class="flex-item" type="checkbox" name="biography-page" />Biography Page
           <input class="flex-item" type="checkbox" name="resume-page" />Resume Page
-          <div class="flex-item2" id="other-ideas">Other Ideas: <textarea id="other-ideas" rows="1" cols="50"></textarea></div> 
+          <div class="flex-item2" id="other-ideas">Other Ideas: <textarea id="other-ideas-input" rows="1" cols="50"></textarea></div> 
         </fieldset>
         <fieldset class="flex-container" class="field-padding">
           <legend class="Bold">Submit &#38 Reset</legend>
