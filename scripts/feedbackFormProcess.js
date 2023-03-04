@@ -23,14 +23,15 @@ function feedbackFormCalculate(formObj) {
   var textarea = document.getElementById("other-ideas-input");
 
   var text = "Feedback Form Report:\n";
-  text += "Length of email: " + formObj.email.value.length;
-  text += "Gave a rating of: " + formObj.rating.value;
+  text += "Length of email: " + formObj.email.value.length + "\n";
+  text += "Gave a rating of: " + formObj.rating.value + "\n";
   if (textarea) {
     text +=
-      "Left an idea: " +
+      "Left an idea with a length of : " +
+      textarea.value.length +
+      ': "' +
       textarea.value +
-      " with a length of " +
-      textarea.value.length;
+      '"\n';
   }
   text += "Form submitted successfully!";
 
