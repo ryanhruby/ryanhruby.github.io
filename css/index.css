@@ -1,6 +1,11 @@
 h1,
-h2 {
+.light-h2 {
   color: darkblue;
+  font-family: sans-serif;
+}
+
+.dark-h2 {
+  color: white;
   font-family: sans-serif;
 }
 

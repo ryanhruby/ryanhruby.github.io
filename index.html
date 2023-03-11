@@ -5,10 +5,13 @@
     <link rel="stylesheet" type="text/css" href="css/index.css" />
     <script src="scripts/feedbackFormProcess.js"></script>
   </head>
-  <body>
+  <body id="body">
     <h1 class="Standard-Padding" id="welcome-header">
       Welcome to Ryan's Web Page!
     </h1>
+    <div>
+      <button id="lighting-theme-button" onclick="switchMode()">Enable Dark Mode</button>
+    </div>
     <p class="Bold" class="Standard-Padding" id="intro-paragraph">
       This is Ryan's personal website:
     </p>
@@ -22,7 +25,7 @@
       </ul>
     </div>
     <div>
-      <h2 class="Standard-Padding">Feedback Form</h2>
+      <h2 id="header2" class= "light-h2" class="Standard-Padding">Feedback Form</h2>
     </div>
     <div id="form-div">
       <form id="feedback-form" onsubmit="feedbackFormProcess()">
