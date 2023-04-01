@@ -1,62 +1,55 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" id="html">
+  <!-- Page settings, stylesheets, and scripts -->
   <head>
-    <title>Ryan's Personal Web Page</title>
-    <link rel="stylesheet" type="text/css" href="css/index.css" />
-    <script src="scripts/feedbackFormProcess.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="css/desktop.css" />
+    <script src="scripts/ratingFormProcess.js"></script>
     <script src="scripts/lightingThemeProcess.js"></script>
+    <title>Ryan Hruby's Personal Website</title>
   </head>
-  <body id="body">
-    <h1 class="Standard-Padding" id="welcome-header">
-      Welcome to Ryan's Web Page!
-    </h1>
+  <!-- Page header, nav bar, and theme selector-->
+  <header>
     <div>
-      <button id="lighting-theme-button" onclick="switchMode()">Enable Dark Mode</button>
+        <h1 id="page-header">Ryan Hruby's Personal Website</h1>
+        <p>developed by Ryan Hruby.</p>
+        <button id="theme-selector" value="Enable Dark Mode" onclick="switchMode()">Enable Dark Mode</button>
+        <!-- Nav bar -->
+        <nav>
+          <ul class="Menu-items">
+            <li><a href="index.html">Biography</a></li>
+            <li><a href="pages/employment.html">Experience</a></li>
+            <li><a href="pages/education_history.html">Education</a></li>
+            <li><a href="pages/contact.html">Contact</a></li>
+          </ul>
+        </nav>
     </div>
-    <p class="Bold" class="Standard-Padding" id="intro-paragraph">
-      This is Ryan's personal website:
-    </p>
-    <div id="list-container">
-      <ul class="Bold" class="Standard-Padding" id="list-of-elements">
-        <li>Experience page</li>
-        <li>Education page</li>
-        <li><a href="image.html">Headshot</a> page</li>
-        <li><a href="table.html">Favorites</a> page</li>
-        <li>Projects page</li>
-      </ul>
+  </header>
+  <!-- Biography and headshot image in body -->
+  <body>
+    <div id="body-text-div">
+      <p>My name is Ryan Hruby, and I am a senior computer science and mathematics major at the University of Nebraska-Lincoln. 
+      I enjoy problem-solving in the context of computers - designing programs and algorithms for tasks and solutions excites me the most. 
+      This is why I am currently pursuing a degree in Computer Science; I want to learn the skills required to tackle these problems in real-life situations.</p> 
+      <p>My past work experience includes internships at Nelnet and American Century Investments, where I developed frontend web-applications that relied on backend APIs.</p>
+      <p>I'm looking to build my network and explore interesting and new opportunities that connect to my passion of computer science.</p>
+      <p>Check out the different pages to learn more about my experiences and education! If you like the website, feel free to leave a rating below or give feedback on the Contact page.</p>
     </div>
-    <div>
-      <h2 id="header2" class= "light-h2" class="Standard-Padding">Feedback Form</h2>
+    <img id="ryan_head_profile" src="images/ryan_head_profile.JPG" alt="Ryan's Head Profile" width="188" height="235">
+</body>
+  <!-- Easy access rating form footer on all pages -->
+  <footer>  
+    <div id="footer-div">
+        <p id="rating-p">Rate this website:</p>        
+        <form id="rating-form" onsubmit="ratingFormProcess()">
+            <input type="radio" name="rating" value="1"> 1</input>
+            <input type="radio" name="rating" value="2"> 2</input>
+            <input type="radio" name="rating" value="3"> 3</input>
+            <input type="radio" name="rating" value="4"> 4</input>
+            <input type="radio" name="rating" value="5"> 5</input>
+            <input id="submit-btn" type="submit" value="Submit" />
+        </form>
     </div>
-    <div id="form-div">
-      <form id="feedback-form" onsubmit="feedbackFormProcess()">
-        <fieldset class="field-passing">
-          <legend class="Bold">Your E-mail</legend>
-          <input type="text" name="email" size="40">
-        </fieldset>
-        <fieldset class="field-padding">
-          <legend class="Bold">Rate this Website</legend>
-          <select name="rating">
-            <option>1 (Great)</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5 (Terrible)</option>
-          </select>
-        </fieldset>
-        <fieldset class="flex-container" class="field-padding">
-          <legend class="Bold">What new pages would you like to see?</legend>
-          <input class="flex-item" type="checkbox" name="contact-page" />Contact Page
-          <input class="flex-item" type="checkbox" name="biography-page" />Biography Page
-          <input class="flex-item" type="checkbox" name="resume-page" />Resume Page
-          <div class="flex-item2" id="other-ideas">Other Ideas: <textarea id="other-ideas-input" rows="1" cols="50"></textarea></div> 
-        </fieldset>
-        <fieldset class="flex-container" class="field-padding">
-          <legend class="Bold">Submit &#38 Reset</legend>
-          <input class="flex-item" type="submit" value="Send Feedback" />
-          <input class="flex-item" type="reset" value="Reset Form" />
-        </fieldset>
-      </form>
-    </div>
-  </body>
+  </footer>
 </html>
