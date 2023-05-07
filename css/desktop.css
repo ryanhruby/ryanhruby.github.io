@@ -12,9 +12,28 @@
   color: #ddd;
 }
 
+.Dark-theme h2,
+.Dark-theme h3 {
+  color: #ddd;
+}
+
 .Dark-theme header,
 .Dark-theme footer {
   background-color: rgb(3, 43, 54);
+}
+
+.Dark-theme li {
+  background-color: #ddd;
+}
+
+.Dark-theme nav,
+.Dark-theme a {
+  background-color: rgb(0, 122, 153);
+}
+
+.Dark-theme #linkedin {
+  background-color: rgb(3, 60, 75);
+  color: rgb(255, 255, 255);
 }
 
 html {
@@ -55,25 +74,45 @@ header button {
 
 nav {
   display: block;
+  background-color: rgb(2, 98, 122);
 }
 
-.Menu-item {
+li {
+  display: list-item;
   float: left;
-  width: 127px;
+  width: 239px;
   border-right: 1px solid #fff;
   font-weight: bold;
-  font-size: 0.7em;
+  font-size: 0.8em;
   text-align: center;
   list-style: none;
+}
+
+li:last-child {
+  width: 240px;
+  border-right-width: 0;
 }
 
 .Menu-item a {
   display: block;
   height: 25px;
   line-height: 25px;
-  background-color: #048018;
+  background-color: rgb(2, 98, 122);
   color: #fff;
   text-decoration: none;
+}
+
+h2 {
+  color: rgb(2, 98, 122);
+  margin: 10px;
+  padding: 5px;
+  padding-top: 15px;
+}
+
+h3 {
+  color: rgb(2, 98, 122);
+  margin: 10px;
+  padding: 5px;
 }
 
 body {
@@ -97,6 +136,14 @@ body p {
 }
 
 #ryan_head_profile {
+  float: right;
+  display: flex;
+  margin: 10px;
+  margin-right: 20px;
+  padding: 5px;
+}
+
+#nebraska_logo {
   float: right;
   display: flex;
   margin: 10px;
@@ -138,4 +185,60 @@ footer {
   font-size: 0.9em;
   padding: 5px;
   margin-left: 10px;
+}
+
+.Bold {
+  font-weight: bold;
+}
+
+.Standard-Padding {
+  padding: 10px;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+}
+
+.flex-item {
+  display: flex;
+  flex: 1;
+}
+
+.flex-item2 {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+}
+
+fieldset {
+  margin: 8px;
+  padding: 8px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+#other-ideas {
+  font-size: medium;
+  margin-left: 10px;
+  padding: 5px;
+}
+
+#fb-submit {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  text-align: center;
+  font-weight: bold;
+  font-size: 0.9em;
+  padding: 5px;
+  margin-right: 20px;
+  margin-left: 12px;
+}
+
+#fb-reset {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  text-align: center;
+  font-weight: bold;
+  font-size: 0.9em;
+  padding: 5px;
 }

@@ -1,3 +1,5 @@
+var request = null;
+
 function feedbackFormProcess() {
   var formObj = document.getElementById("feedback-form");
 
@@ -7,6 +9,38 @@ function feedbackFormProcess() {
     alert(
       "Email formatted incorrectly. Please enter a valid email address and try again."
     );
+    return;
+  }
+
+  var email = encodeURIComponent(formObj.email.value);
+  var galleryPage = encodeURIComponent(formObj.galleryPage.value);
+  var bioPage = encodeURIComponent(formObj.bioPage.value);
+  var resumePage = encodeURIComponent(formObj.resumePage.value);
+  var otherIdeasInput = encodeURIComponent(
+    document.getElementById("other-ideas-input").value
+  );
+  var url = "feedbackFormResponse.php";
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST", url, true);
+  xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhr.onreadystatechange = update;
+  xhr.send(
+    "email=" +
+      email +
+      "&galleryPage=" +
+      galleryPage +
+      "&bioPage=" +
+      bioPage +
+      "&resumePage=" +
+      resumePage +
+      "&otherIdeasInput=" +
+      otherIdeasInput
+  );
+}
+
+function update() {
+  if ((request.readystate = 4)) {
+    //Check whether or not it was successful, if email was used too recently, etc.
   }
 }
 
@@ -24,7 +58,6 @@ function feedbackFormCalculate(formObj) {
 
   var text = "Feedback Form Report:\n";
   text += "Length of email: " + formObj.email.value.length + "\n";
-  text += "Gave a rating of: " + formObj.rating.value + "\n";
   if (textarea) {
     text +=
       "Left an idea with a length of : " +
