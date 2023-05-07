@@ -17,21 +17,12 @@
   background-color: rgb(3, 43, 54);
 }
 
-.Menu-item li {
-  float: left;
-  width: 127px;
-  border-right: 1px solid #fff;
-  font-weight: bold;
-  font-size: 0.7em;
-  text-align: center;
-  list-style: none;
-}
-
 html {
   background-color: rgb(2, 98, 122);
 }
 
 header {
+  display: block;
   width: 100%;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
@@ -60,6 +51,29 @@ header button {
   font-weight: bold;
   font-size: 0.9em;
   padding: 5px;
+}
+
+nav {
+  display: block;
+}
+
+.Menu-item {
+  float: left;
+  width: 127px;
+  border-right: 1px solid #fff;
+  font-weight: bold;
+  font-size: 0.7em;
+  text-align: center;
+  list-style: none;
+}
+
+.Menu-item a {
+  display: block;
+  height: 25px;
+  line-height: 25px;
+  background-color: #048018;
+  color: #fff;
+  text-decoration: none;
 }
 
 body {
