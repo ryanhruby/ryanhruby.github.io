@@ -3,13 +3,11 @@ var request = null;
 function feedbackFormProcess() {
   var formObj = document.getElementById("feedback-form");
 
-  if (validateEmail(formObj)) {
-    feedbackFormCalculate(formObj);
-  } else {
+  if (!validateEmail(formObj)) {
     alert(
       "Email formatted incorrectly. Please enter a valid email address and try again."
     );
-    return;
+    return false;
   }
 
   var email = encodeURIComponent(formObj.email.value);
@@ -23,7 +21,7 @@ function feedbackFormProcess() {
   var xhr = new XMLHttpRequest();
   xhr.open("POST", url, true);
   xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  xhr.onreadystatechange = update;
+  xhr.onreadystatechange = update(formObj);
   xhr.send(
     "email=" +
       email +
@@ -38,9 +36,13 @@ function feedbackFormProcess() {
   );
 }
 
-function update() {
+function update(formObj) {
   if ((request.readystate = 4)) {
-    //Check whether or not it was successful, if email was used too recently, etc.
+    if (request.responseText == "Feedback successfully recorded.") {
+      feedbackFormCalculate(formObj);
+    } else {
+      alert(request.responseText);
+    }
   }
 }
 
@@ -66,7 +68,7 @@ function feedbackFormCalculate(formObj) {
       textarea.value +
       '"\n';
   }
-  text += "Form submitted successfully!";
+  text += "Feedback recorded successfully!";
 
   alert(text);
 }

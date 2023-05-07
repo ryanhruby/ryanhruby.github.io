@@ -1,14 +1,14 @@
 <?php 
 
-$dbLocation = "cse.unl.edu";
-$dbUsername = "rhruby";
-$dbPassword = "";
-$dbName = "rhruby";
+$dbLocation = "localhost"; //does this need the port # also?
+$dbUsername = "root";
+$dbPassword = "root";
+$dbName = "";
 
 $db = mysqli_connect($dbLocation, $dbUsername, $dbPassword, $dbName);
 
 if(emailUsedRecently($db, $_POST['email'])){
-    echo "The provided email has already been registered. Please submit a different email.";
+    echo "The provided email was used to give feedback less than one hour ago. Please wait before providing feedback again.";
 }
 
 $query = "INSERT INTO Customers(
@@ -25,8 +25,10 @@ $query = "INSERT INTO Customers(
 
 $success = mysqli_query($db, $query);
 mysqli_close($db);
-echo "Customer successfully registered.";
+echo "Feedback successfully recorded.";
 
+//Update to check if email was used recently (timestamp column in table)
+//Get current time in PHP and then base WHERE clause off of that?
 function emailUsedRecently($db, $email){
     $query = "SELECT * FROM Customers WHERE email_address =  '$email'";
     $customers = mysqli_query($db, $query);
