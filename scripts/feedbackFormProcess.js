@@ -1,4 +1,4 @@
-var request = null;
+var xhr = null;
 
 function feedbackFormProcess() {
   var formObj = document.getElementById("feedback-form");
@@ -7,28 +7,29 @@ function feedbackFormProcess() {
     alert(
       "Email formatted incorrectly. Please enter a valid email address and try again."
     );
-    return false;
+    return false; //event.preventDefault() here to stop form from clearing? Not working
   }
 
   var email = encodeURIComponent(formObj.email.value);
   var galleryPage = encodeURIComponent(formObj.galleryPage.value);
-  var bioPage = encodeURIComponent(formObj.bioPage.value);
+  var langPage = encodeURIComponent(formObj.langPage.value);
   var resumePage = encodeURIComponent(formObj.resumePage.value);
   var otherIdeasInput = encodeURIComponent(
     document.getElementById("other-ideas-input").value
   );
+  console.log(email + galleryPage + langPage + resumePage + otherIdeasInput); //debugging
   var url = "feedbackFormResponse.php";
-  var xhr = new XMLHttpRequest();
+  xhr = new XMLHttpRequest();
   xhr.open("POST", url, true);
   xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  xhr.onreadystatechange = update(formObj);
+  xhr.onreadystatechange = updatePage;
   xhr.send(
     "email=" +
       email +
       "&galleryPage=" +
       galleryPage +
-      "&bioPage=" +
-      bioPage +
+      "&langPage=" +
+      langPage +
       "&resumePage=" +
       resumePage +
       "&otherIdeasInput=" +
@@ -36,12 +37,14 @@ function feedbackFormProcess() {
   );
 }
 
-function update(formObj) {
-  if ((request.readystate = 4)) {
-    if (request.responseText == "Feedback successfully recorded.") {
-      feedbackFormCalculate(formObj);
+function updatePage() {
+  if (xhr.readyState == 4) {
+    alert("TEST"); //debugging
+    if (xhr.responseText == "Feedback successfully recorded.") {
+      alert(xhr.responseText); //debugging
+      //feedbackFormCalculate(formObj); //need to do this above, cannot pass formObj through
     } else {
-      alert(request.responseText);
+      alert(xhr.responseText);
     }
   }
 }
@@ -68,7 +71,8 @@ function feedbackFormCalculate(formObj) {
       textarea.value +
       '"\n';
   }
-  text += "Feedback recorded successfully!";
+  text +=
+    "Feedback recorded successfully! Please wait an hour before submitting again.";
 
   alert(text);
 }

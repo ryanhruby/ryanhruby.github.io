@@ -25,7 +25,7 @@
           <li class="Menu-item"><a href="experience.html">Experience</a></li>
           <li class="Menu-item"><a href="education.html">Education</a></li>
           <li class="Menu-item"><a href="checkers.html">Checkers</a></li>
-          <li class="Menu-item"><a href="contact.html">Contact</a></li>
+          <li class="Menu-item"><a href="contact.php">Contact</a></li>
         </ul>
       </nav>
     </header>
@@ -41,15 +41,16 @@
       <form id="feedback-form" onsubmit="feedbackFormProcess()"> <!--may need action and method here for PHP-->
         <fieldset>
           <legend class="Bold">Your E-mail</legend>
-          <input style="margin-left: 12px;" type="text" name="email" size="40">
+          <input style="margin-left: 12px; font-size: medium; padding: 5px;" type="text" name="email" maxLength="190" size="40" placeholder="Your E-mail">
         </fieldset>
         <p></p>
         <fieldset class="flex-container" class="field-padding">
           <legend class="Bold">What new pages would you like to see?</legend>
-          <input class="flex-item" type="checkbox" name="galleryPage">Gallery Page</input>
-          <input class="flex-item" type="checkbox" name="bioPage">Languages/Tools Used Page</input>
-          <input class="flex-item" type="checkbox" name="resumePage">Interactive Game</input>
-          <div id="other-ideas">Other Ideas: <textarea id="other-ideas-input" rows="1" cols="50"></textarea></div> 
+          <input class="flex-item" type="checkbox" name="galleryPage" value="yes">Gallery Page</input>
+          <input class="flex-item" type="checkbox" name="langPage" value="yes">Languages/Tools Used Page</input>
+          <input class="flex-item" type="checkbox" name="resumePage" value="yes">Resume Page</input>
+          <!--<div id="other-ideas">Other Ideas: <textarea id="other-ideas-input" rows="1" cols="50"></textarea></div> -->
+          <input id="other-ideas" type="text" name="other-ideas-input" size="50" maxlength="250" placeholder="Other Ideas"></input>
         </fieldset>
         <p></p>
         <fieldset class="flex-container" class="field-padding">
