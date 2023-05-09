@@ -8,7 +8,7 @@ $dbName = "project";
 $db = mysqli_connect($dbLocation, $dbUsername, $dbPassword, $dbName);
 
 if ($db->connect_error) {
-    die("Sorry, an error occurred. Please try again later." . $db->connect_error);
+    die("Sorry, an error occurred. Please try again later.");
 }
 
 if(emailUsedRecently($db, $_POST['email'])){
@@ -25,14 +25,16 @@ $query = "INSERT INTO Feedback(
     resumePage,
     otherIdeasInput,
     timeSubmitted) 
-    VALUES ('$_POST[email]',
-    '$_POST[galleryPage]',
-    '$_POST[langPage]',
-    '$_POST[resumePage]',
-    '$_POST[otherIdeasInput]',
-    $timeSubmitted);";
+    VALUES (?,?,?,?,?,?);";
 
-$success = mysqli_query($db, $query);
+$ps = mysqli_stmt_init($db);
+mysqli_stmt_prepare($ps, $query);
+
+mysqli_stmt_bind_param($ps, 'sssssi', $_POST['email'], $_POST['galleryPage'],
+$_POST['langPage'], $_POST['resumePage'], $_POST['otherIdeasInput'], $timeSubmitted);
+
+$success = mysqli_stmt_execute($ps);
+
 mysqli_close($db);
 if($success){
     echo "Feedback successfully recorded.";

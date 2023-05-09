@@ -50,7 +50,7 @@
           <input class="flex-item" type="checkbox" name="langPage" value="yes">Languages/Tools Used Page</input>
           <input class="flex-item" type="checkbox" name="resumePage" value="yes">Resume Page</input>
           <!--<div id="other-ideas">Other Ideas: <textarea id="other-ideas-input" rows="1" cols="50"></textarea></div> -->
-          <input id="other-ideas" type="text" name="other-ideas-input" size="50" maxlength="250" placeholder="Other Ideas"></input>
+          <input id="other-ideas" type="text" name="otherIdeasInput" size="50" maxlength="250" placeholder="Other Ideas"></input>
         </fieldset>
         <p></p>
         <fieldset class="flex-container" class="field-padding">

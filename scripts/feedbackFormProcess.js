@@ -14,10 +14,7 @@ function feedbackFormProcess() {
   var galleryPage = encodeURIComponent(formObj.galleryPage.value);
   var langPage = encodeURIComponent(formObj.langPage.value);
   var resumePage = encodeURIComponent(formObj.resumePage.value);
-  var otherIdeasInput = encodeURIComponent(
-    document.getElementById("other-ideas-input").value
-  );
-  console.log(email + galleryPage + langPage + resumePage + otherIdeasInput); //debugging
+  var otherIdeasInput = encodeURIComponent(formObj.otherIdeasInput.value);
   var url = "feedbackFormResponse.php";
   xhr = new XMLHttpRequest();
   xhr.open("POST", url, true);
@@ -59,7 +56,7 @@ function validateEmail() {
 }
 
 function feedbackFormCalculate(formObj) {
-  var textarea = document.getElementById("other-ideas-input");
+  var otherIdeasInput = formObj.otherIdeasInput.value;
 
   var text = "Feedback Form Report:\n";
   text += "Length of email: " + formObj.email.value.length + "\n";
