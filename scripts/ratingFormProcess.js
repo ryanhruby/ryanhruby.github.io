@@ -37,3 +37,10 @@ function updatePageRating() {
     }
   }
 }
+
+function disableRatingForm(val) {
+  var fieldset = document.getElementById("rating-fieldset");
+  fieldset.setAttribute("disabled", "");
+  var input = document.getElementById("rd" + val);
+  input.setAttribute("checked", "true");
+}

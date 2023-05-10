@@ -1,3 +1,9 @@
+<?php 
+session_start();
+if(!isset($_SESSION["ratingSubmitted"])) $_SESSION["ratingSubmitted"] = false;
+if(!isset($_SESSION["rating"])) $_SESSION["rating"] = 0;
+?>
+
 <!DOCTYPE html>
 <html lang="en" id="html">
   <!-- Page settings, stylesheets, and scripts -->
@@ -51,16 +57,25 @@
   </body>
   <!-- Easy access rating form footer on all pages -->
   <footer>  
-    <div id="footer-div">
-        <p id="rating-p">Rate this website:</p>        
-        <form id="rating-form" onsubmit="ratingFormProcess()">
-            <input type="radio" name="rating" value="1"> 1</input>
-            <input type="radio" name="rating" value="2"> 2</input>
-            <input type="radio" name="rating" value="3"> 3</input>
-            <input type="radio" name="rating" value="4"> 4</input>
-            <input type="radio" name="rating" value="5"> 5</input>
-            <input id="submit-btn" type="submit" value="Submit" />
-        </form>
-    </div>
+    <footer>  
+      <div id="footer-div">
+          <p id="rating-p">Rate this website:</p>        
+          <form id="rating-form" onsubmit="ratingFormProcess()">
+            <fieldset id="rating-fieldset">
+              <input id="rd1" type="radio" name="rating" value="1"> 1</input>
+              <input id="rd2" type="radio" name="rating" value="2"> 2</input>
+              <input id="rd3" type="radio" name="rating" value="3"> 3</input>
+              <input id="rd4" type="radio" name="rating" value="4"> 4</input>
+              <input id="rd5" type="radio" name="rating" value="5"> 5</input>
+              <input id="submit-btn" type="submit" value="Submit" />
+            </fieldset>
+          </form>
+      </div>
+    </footer>
+    <script>
+      if(<?php echo $_SESSION["ratingSubmitted"] ?> == true){
+        disableRatingForm(<?php echo $_SESSION["rating"] ?>);
+      }
+    </script>
   </footer>
 </html>
