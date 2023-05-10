@@ -4,6 +4,7 @@ if(!isset($_SESSION["ratingSubmitted"])) $_SESSION["ratingSubmitted"] = false;
 if(!isset($_SESSION["rating"])) $_SESSION["rating"] = 0;
 if(!isset($_SESSION["prefTheme"])) $_SESSION["prefTheme"] = "light";
 if(!isset($_SESSION["currTheme"])) $_SESSION["currTheme"] = "light";
+if(!isset($_SESSION["loggedIn"])) $_SESSION["loggedIn"] = false;
 
 $_SESSION["currTheme"] = "light";
 ?>
@@ -47,7 +48,7 @@ $_SESSION["currTheme"] = "light";
       </nav>
     </header>
     <!-- Feedback form -->
-    <div>
+    <div id="loginDiv">
         <p></p>
         <h2>Login or Register</h2>
         <form id="login-form" class="settings-forms" onsubmit="loginFormProcess()">
@@ -72,11 +73,16 @@ $_SESSION["currTheme"] = "light";
           <input class="fb-submit" class="settings-input" type="submit" value="Register" />
         </fieldset>
         </form>
-    <div>
-    <div hidden>
+    </div>
+    <div id="settingsDiv" hidden>
         <p></p>
         <h2>Settings</h2>
-    <div>
+    </div>
+    <?php 
+      if($_SESSION['loggedIn'] == true){
+        echo '<script>document.getElementById("loginDiv").setAttribute("hidden", ""); document.getElementById("settingsDiv").removeAttribute("hidden");</script>';
+      }
+    ?>
   </body>
   <!-- Easy access rating form footer on all pages -->
   <footer>  

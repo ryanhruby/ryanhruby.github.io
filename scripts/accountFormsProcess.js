@@ -16,8 +16,8 @@ function loginFormProcess() {
 }
 
 function updatePageLogin() {
-  if (xhr_reg.readyState == 4) {
-    alert(xhr_reg.responseText);
+  if (xhr_log.readyState == 4) {
+    alert(xhr_log.responseText);
   }
 }
 
