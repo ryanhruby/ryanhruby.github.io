@@ -2,6 +2,10 @@
 session_start();
 if(!isset($_SESSION["ratingSubmitted"])) $_SESSION["ratingSubmitted"] = false;
 if(!isset($_SESSION["rating"])) $_SESSION["rating"] = 0;
+if(!isset($_SESSION["prefTheme"])) $_SESSION["prefTheme"] = "light";
+if(!isset($_SESSION["currTheme"])) $_SESSION["currTheme"] = "light";
+
+$_SESSION["currTheme"] = "light";
 ?>
 
 <!DOCTYPE html>
@@ -23,16 +27,21 @@ if(!isset($_SESSION["rating"])) $_SESSION["rating"] = 0;
           <h1 id="page-header">Ryan Hruby's Personal Website</h1>
           <p>developed by Ryan Hruby.</p>
           <button id="theme-selector" value="Enable Dark Mode" onclick="switchMode()">Enable Dark Mode</button>
+          <?php 
+          if($_SESSION["prefTheme"] != $_SESSION["currTheme"]){
+            echo "<script>switchMode()</script>";
+          }
+          ?>
       </div>
       <!-- Nav bar -->
       <nav>
         <ul>
-          <li class="Menu-item"><a href="../index.html">Biography</a></li>
-          <li class="Menu-item"><a href="experience.html">Experience</a></li>
-          <li class="Menu-item"><a href="education.html">Education</a></li>
-          <li class="Menu-item"><a href="checkers.html">Checkers</a></li>
+          <li class="Menu-item"><a href="index.php">Biography</a></li>
+          <li class="Menu-item"><a href="experience.php">Experience</a></li>
+          <li class="Menu-item"><a href="education.php">Education</a></li>
+          <li class="Menu-item"><a href="checkers.php">Checkers</a></li>
           <li class="Menu-item"><a href="contact.php">Contact</a></li>
-          <li class="Menu-item"><a href="login.php">Login & Settings</a></li>
+          <li class="Menu-item"><a href="settings.php">Login & Settings</a></li>
         </ul>
       </nav>
     </header>
@@ -61,8 +70,8 @@ if(!isset($_SESSION["rating"])) $_SESSION["rating"] = 0;
         <p></p>
         <fieldset class="flex-container" class="field-padding">
           <legend class="Bold">Submit &#38 Reset</legend>
-          <input id="fb-submit" type="submit" value="Send Feedback" />
-          <input id="fb-reset" type="reset" value="Reset Form" />
+          <input class="fb-submit" type="submit" value="Send Feedback" />
+          <input class="fb-reset" type="reset" value="Reset Form" />
         </fieldset>
         <p></p>
       </form>

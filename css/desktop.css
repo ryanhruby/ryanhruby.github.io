@@ -225,7 +225,7 @@ fieldset {
   padding: 5px;
 }
 
-#fb-submit {
+.fb-submit {
   font-family: Verdana, Arial, Helvetica, sans-serif;
   text-align: center;
   font-weight: bold;
@@ -235,7 +235,7 @@ fieldset {
   margin-left: 12px;
 }
 
-#fb-reset {
+.fb-reset {
   font-family: Verdana, Arial, Helvetica, sans-serif;
   text-align: center;
   font-weight: bold;
@@ -245,4 +245,16 @@ fieldset {
 
 #rating-fieldset {
   border: 0px;
+}
+
+.settings-forms {
+  display: block;
+}
+
+.settings-input {
+  display: inline-block;
+  text-align: left;
+  padding-top: 4px;
+  margin-top: 8px;
+  margin-bottom: 16px;
 }

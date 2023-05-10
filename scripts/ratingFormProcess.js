@@ -43,4 +43,5 @@ function disableRatingForm(val) {
   fieldset.setAttribute("disabled", "");
   var input = document.getElementById("rd" + val);
   input.setAttribute("checked", "true");
+  document.getElementById("rating-p").innerHTML = "Thanks for Rating!";
 }

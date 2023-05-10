@@ -2,6 +2,10 @@
 session_start();
 if(!isset($_SESSION["ratingSubmitted"])) $_SESSION["ratingSubmitted"] = false;
 if(!isset($_SESSION["rating"])) $_SESSION["rating"] = 0;
+if(!isset($_SESSION["prefTheme"])) $_SESSION["prefTheme"] = "light";
+if(!isset($_SESSION["currTheme"])) $_SESSION["currTheme"] = "light";
+
+$_SESSION["currTheme"] = "light";
 ?>
 
 <!DOCTYPE html>
@@ -10,9 +14,9 @@ if(!isset($_SESSION["rating"])) $_SESSION["rating"] = 0;
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="stylesheet" href="css/desktop.css" />
-    <script src="scripts/ratingFormProcess.js"></script>
-    <script src="scripts/lightingThemeProcess.js"></script>
+    <link rel="stylesheet" href="../css/desktop.css" />
+    <script src="../scripts/ratingFormProcess.js"></script>
+    <script src="../scripts/lightingThemeProcess.js"></script>
     <title>Ryan Hruby's Personal Website</title>
   </head>
   <body>
@@ -22,16 +26,21 @@ if(!isset($_SESSION["rating"])) $_SESSION["rating"] = 0;
           <h1 id="page-header">Ryan Hruby's Personal Website</h1>
           <p>developed by Ryan Hruby.</p>
           <button id="theme-selector" value="Enable Dark Mode" onclick="switchMode()">Enable Dark Mode</button>
+          <?php 
+          if($_SESSION["prefTheme"] != $_SESSION["currTheme"]){
+            echo "<script>switchMode()</script>";
+          }
+          ?>
       </div>
       <!-- Nav bar -->
       <nav>
         <ul>
-          <li class="Menu-item"><a href="index.html">Biography</a></li>
-          <li class="Menu-item"><a href="pages/experience.html">Experience</a></li>
-          <li class="Menu-item"><a href="pages/education.html">Education</a></li>
-          <li class="Menu-item"><a href="pages/checkers.html">Checkers</a></li>
-          <li class="Menu-item"><a href="pages/contact.php">Contact</a></li>
-          <li class="Menu-item"><a href="pages/login.php">Login & Settings</a></li>
+          <li class="Menu-item"><a href="index.php">Biography</a></li>
+          <li class="Menu-item"><a href="experience.php">Experience</a></li>
+          <li class="Menu-item"><a href="education.php">Education</a></li>
+          <li class="Menu-item"><a href="checkers.php">Checkers</a></li>
+          <li class="Menu-item"><a href="contact.php">Contact</a></li>
+          <li class="Menu-item"><a href="settings.php">Login & Settings</a></li>
         </ul>
       </nav>
     </header>
@@ -46,7 +55,7 @@ if(!isset($_SESSION["rating"])) $_SESSION["rating"] = 0;
       <p>I'm looking to build my network and explore interesting and new opportunities that connect to my passion of computer science.</p>
       <p>Check out the different pages to learn more about my experiences and education! If you like the website, feel free to leave a rating below or give feedback on the Contact page.</p>
     </div>
-    <img id="ryan_head_profile" src="images/ryan_head_profile.JPG" alt="Ryan's Head Profile" width="188" height="235">
+    <img id="ryan_head_profile" src="../images/ryan_head_profile.JPG" alt="Ryan's Head Profile" width="188" height="235">
 </body>
   <!-- Easy access rating form footer on all pages -->
   <footer>  
