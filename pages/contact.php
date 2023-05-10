@@ -1,3 +1,12 @@
+<?php 
+session_start();
+if(!isset($_SESSION["ratingSubmitted"])) $_SESSION["ratingSubmitted"] = false;
+if(!isset($_SESSION["rating"])) $_SESSION["rating"] = 0;
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en" id="html">
   <!-- Page settings, stylesheets, and scripts -->
@@ -26,6 +35,7 @@
           <li class="Menu-item"><a href="education.html">Education</a></li>
           <li class="Menu-item"><a href="checkers.html">Checkers</a></li>
           <li class="Menu-item"><a href="contact.php">Contact</a></li>
+          <li class="Menu-item"><a href="login.php">Login & Settings</a></li>
         </ul>
       </nav>
     </header>
@@ -38,7 +48,7 @@
       <h3 id="feedback-header">Feedback Form</h3>
     </div>
     <div id="form-div">
-      <form id="feedback-form" onsubmit="feedbackFormProcess()"> <!--may need action and method here for PHP-->
+      <form id="feedback-form" onsubmit="feedbackFormProcess()">
         <fieldset>
           <legend class="Bold">Your E-mail</legend>
           <input style="margin-left: 12px; font-size: medium; padding: 5px;" type="text" name="email" maxLength="190" size="40" placeholder="Your E-mail">
@@ -49,7 +59,6 @@
           <input class="flex-item" type="checkbox" name="galleryPage" value="yes">Gallery Page</input>
           <input class="flex-item" type="checkbox" name="langPage" value="yes">Languages/Tools Used Page</input>
           <input class="flex-item" type="checkbox" name="resumePage" value="yes">Resume Page</input>
-          <!--<div id="other-ideas">Other Ideas: <textarea id="other-ideas-input" rows="1" cols="50"></textarea></div> -->
           <input id="other-ideas" type="text" name="otherIdeasInput" size="50" maxlength="250" placeholder="Other Ideas"></input>
         </fieldset>
         <p></p>
@@ -67,12 +76,14 @@
     <div id="footer-div">
         <p id="rating-p">Rate this website:</p>        
         <form id="rating-form" onsubmit="ratingFormProcess()">
+          <fieldset id="rating-fieldset">
             <input type="radio" name="rating" value="1"> 1</input>
             <input type="radio" name="rating" value="2"> 2</input>
             <input type="radio" name="rating" value="3"> 3</input>
             <input type="radio" name="rating" value="4"> 4</input>
             <input type="radio" name="rating" value="5"> 5</input>
             <input id="submit-btn" type="submit" value="Submit" />
+          </fieldset>
         </form>
     </div>
   </footer>

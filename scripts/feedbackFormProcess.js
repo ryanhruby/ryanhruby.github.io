@@ -19,7 +19,7 @@ function feedbackFormProcess() {
   xhr = new XMLHttpRequest();
   xhr.open("POST", url, true);
   xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  xhr.onreadystatechange = updatePage;
+  xhr.onreadystatechange = updatePageFeedback;
   xhr.send(
     "email=" +
       email +
@@ -34,9 +34,8 @@ function feedbackFormProcess() {
   );
 }
 
-function updatePage() {
+function updatePageFeedback() {
   if (xhr.readyState == 4) {
-    alert("TEST"); //debugging
     if (xhr.responseText == "Feedback successfully recorded.") {
       alert(xhr.responseText); //debugging
       //feedbackFormCalculate(formObj); //need to do this above, cannot pass formObj through

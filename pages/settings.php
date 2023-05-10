@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../css/desktop.css" />
     <script src="../scripts/ratingFormProcess.js"></script>
     <script src="../scripts/lightingThemeProcess.js"></script>
+    <script src="../scripts/feedbackFormProcess.js"></script>
     <title>Ryan Hruby's Personal Website</title>
   </head>
   <body>
@@ -25,14 +26,13 @@
           <li class="Menu-item"><a href="education.html">Education</a></li>
           <li class="Menu-item"><a href="checkers.html">Checkers</a></li>
           <li class="Menu-item"><a href="contact.php">Contact</a></li>
-          <li class="Menu-item"><a href="login.php">Login & Settings</a></li>
+          <li class="Menu-item"><a href="settings.php">Login & Settings</a></li>
         </ul>
       </nav>
     </header>
-    <!-- Checkers Game -->
+    <!-- Feedback form -->
     <p></p>
-    <h2>Checkers</h2>
-    <p>Under construction.</p>
+    <h2>Settings</h2>
   </body>
   <!-- Easy access rating form footer on all pages -->
   <footer>  
