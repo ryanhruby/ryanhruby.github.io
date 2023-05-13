@@ -1,5 +1,6 @@
 var xhr_log = null;
 var xhr_reg = null;
+var xhr_out = null;
 
 function loginFormProcess() {
   event.preventDefault;
@@ -44,5 +45,22 @@ function regFormProcess() {
 function updatePageReg() {
   if (xhr_reg.readyState == 4) {
     alert(xhr_reg.responseText);
+  }
+}
+
+function logoutProcess() {
+  var url = "logoutResponse.php";
+  xhr_out = new XMLHttpRequest();
+  xhr_out.open("GET", url, true);
+  xhr_out.onreadystatechange = updatePageRating;
+  xhr_out.send(null);
+}
+
+function updatePageLogout() {
+  if (xhr_out.readyState == 4) {
+    if (xhr_out.responseText == "Login status: false")
+      document.getElementById("settingsDiv").setAttribute("hidden", "");
+    document.getElementById("loginDiv").removeAttribute("hidden");
+    alert("You have been successfully logged out.");
   }
 }

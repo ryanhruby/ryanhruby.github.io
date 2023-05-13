@@ -2,10 +2,11 @@
 session_start();
 if(!isset($_SESSION["ratingSubmitted"])) $_SESSION["ratingSubmitted"] = false;
 if(!isset($_SESSION["rating"])) $_SESSION["rating"] = 0;
-if(!isset($_SESSION["prefTheme"])) $_SESSION["prefTheme"] = "light";
 if(!isset($_SESSION["currTheme"])) $_SESSION["currTheme"] = "light";
-
-$_SESSION["currTheme"] = "light";
+if(!isset($_SESSION["prefTheme"])) $_SESSION["prefTheme"] = "light";
+if(!isset($_SESSION["prefClock"])) $_SESSION["prefClock"] = "12hr";
+if(!isset($_SESSION["timezone"])) $_SESSION["timezone"] = "US/Central";
+if(!isset($_SESSION["loggedIn"])) $_SESSION["loggedIn"] = false;
 ?>
 
 <!DOCTYPE html>
@@ -18,20 +19,32 @@ $_SESSION["currTheme"] = "light";
     <script src="../scripts/ratingFormProcess.js"></script>
     <script src="../scripts/lightingThemeProcess.js"></script>
     <script src="../scripts/feedbackFormProcess.js"></script>
+    <script src="../scripts/timeProcess.js"></script>
     <title>Ryan Hruby's Personal Website</title>
   </head>
-  <body>
+  <body onload="setCurrentTheme()">
     <!-- Page header, nav bar, and theme selector-->
     <header>
       <div>
           <h1 id="page-header">Ryan Hruby's Personal Website</h1>
           <p>developed by Ryan Hruby.</p>
-          <button id="theme-selector" value="Enable Dark Mode" onclick="switchMode()">Enable Dark Mode</button>
+          <p style="font-weight: bold;" id="clock">
           <?php 
-          if($_SESSION["prefTheme"] != $_SESSION["currTheme"]){
-            echo "<script>switchMode()</script>";
+          date_default_timezone_set($_SESSION["timezone"]);
+
+          if($_SESSION['prefClock'] == '12hr'){
+              echo date('h:iA e');
+          }
+          elseif($_SESSION['prefClock'] == '24hr'){
+              echo date('H:i e');
           }
           ?>
+          </p>
+          <script>
+            timeProcess();
+            setInterval('timeProcess()', 60000)
+          </script>
+          <button id="theme-selector" value="Enable Dark Mode" onclick="switchMode()">Enable Dark Mode</button>
       </div>
       <!-- Nav bar -->
       <nav>

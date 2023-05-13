@@ -31,14 +31,15 @@ if($success == false){
 
 $result = mysqli_stmt_get_result($ps);
 $numRows = mysqli_num_rows($result);
-if($numRows > 0){
+if($numRows == 0){
     mysqli_close($db); 
     exit("The username or password entered is incorrect. Please try again.");
 }
 
 $_SESSION['loggedIn'] = true;
 
-//SESSION variables loaded from DB
+$_SESSION['username'] = $_POST['username'];
+//SESSION variables loaded from DB with query
 
 echo "Success";
 

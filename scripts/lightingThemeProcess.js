@@ -2,8 +2,16 @@ var xhr = null;
 
 function switchMode() {
   xhr = new XMLHttpRequest();
-  var url = "themeResponse.php";
+  var url = "themeSwitchResponse.php";
 
+  xhr.open("GET", url, true);
+  xhr.onreadystatechange = updatePageLighting;
+  xhr.send(null);
+}
+
+function setCurrentTheme() {
+  xhr = new XMLHttpRequest();
+  var url = "themeSetResponse.php";
   xhr.open("GET", url, true);
   xhr.onreadystatechange = updatePageLighting;
   xhr.send(null);

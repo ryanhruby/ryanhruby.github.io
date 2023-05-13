@@ -50,7 +50,7 @@ header {
 }
 
 header h1 {
-  padding: 20px 10px;
+  padding: 30px 8px;
   display: inline-block;
 }
 
@@ -80,7 +80,7 @@ nav {
 li {
   display: list-item;
   float: left;
-  width: 200px;
+  width: 216px;
   border-right: 1px solid #fff;
   font-weight: bold;
   font-size: 0.8em;
@@ -89,7 +89,7 @@ li {
 }
 
 li:last-child {
-  width: 195px;
+  width: 215px;
   border-right-width: 0;
 }
 
@@ -116,7 +116,7 @@ h3 {
 }
 
 body {
-  width: 1200px;
+  width: 1300px;
   margin: 20px auto 0 auto;
   border: 8px solid black;
   border-radius: 20px;
