@@ -52,7 +52,7 @@ function logoutProcess() {
   var url = "logoutResponse.php";
   xhr_out = new XMLHttpRequest();
   xhr_out.open("GET", url, true);
-  xhr_out.onreadystatechange = updatePageRating;
+  xhr_out.onreadystatechange = updatePageLogout;
   xhr_out.send(null);
 }
 

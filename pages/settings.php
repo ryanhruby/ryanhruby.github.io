@@ -22,6 +22,7 @@ if(!isset($_SESSION["username"])) $_SESSION["username"] = "user";
     <script src="../scripts/feedbackFormProcess.js"></script>
     <script src="../scripts/accountFormsProcess.js"></script>
     <script src="../scripts/timeProcess.js"></script>
+    <script src="../scripts/saveSettingsProcess.js"></script>
     <title>Ryan Hruby's Personal Website</title>
   </head>
   <body onload="setCurrentTheme()">
@@ -60,7 +61,7 @@ if(!isset($_SESSION["username"])) $_SESSION["username"] = "user";
         </ul>
       </nav>
     </header>
-    <!-- Feedback form -->
+    <!-- Login form -->
     <div id="loginDiv">
         <p></p>
         <h2>Login or Register</h2>
@@ -87,12 +88,44 @@ if(!isset($_SESSION["username"])) $_SESSION["username"] = "user";
         </fieldset>
         </form>
     </div>
+    <!-- Settings form -->
     <div id="settingsDiv" hidden>
         <p style="padding: 10px;"></p>
-        <p>Hello, <?php echo $_SESSION['username']?>.</p>
-        <p onmouseover="logoutProcess()">Logout</p>
-        <!--<button class="fb-submit" type="button" onclick="logoutProcess()">Logout</button>-->
+        <p>Hello, <?php echo $_SESSION['username']?>. Click here to logout:
+          <button class="fb-submit" type="button" onclick="logoutProcess()">Logout</button>
+        </p>
         <h2>Settings</h2>
+        <form id="settings-form" class="settings-forms" onsubmit="saveSettingsProcess()">
+          <fieldset style="border: 0px;" class="field-padding">
+          <label class="settings-input">Preferred Timezone:</label>
+          <select id="prefTimezone" name="prefTimezone">
+            <option id="US/Mountain" value="US/Mountain">US/Mountain</option>
+            <option id="US/Central" value="US/Central">US/Central</option>
+            <option id="US/Pacific" value="US/Pacific">US/Pacific</option>
+            <option id="US/Eastern" value="US/Eastern">US/Eastern</option>
+          </select>
+          <br>
+          <label class="settings-input">Preferred Clock Format:</label>
+          <select id="prefClockFormat" name="prefClockFormat">
+            <option id="12hr" value="12hr">12 Hour AM/PM</option>
+            <option id="24hr" value="24hr">24 Hour</option>
+          </select>
+          <br>
+          <label class="settings-input">Preferred Theme:</label>
+          <select id="prefTheme" name="prefTheme">
+            <option id="light" value="light">Light</option>
+            <option id="dark" value="dark">Dark</option>
+          </select>
+          <br><br>
+          <input class="fb-submit" type="submit" value="Save & Apply" />
+          </fieldset>
+        </form>
+        <?php
+          echo '<script>document.getElementById("' . $_SESSION["timezone"] . '").setAttribute("selected", "");
+          document.getElementById("' . $_SESSION["prefClock"] . '").setAttribute("selected", "");
+          document.getElementById("' . $_SESSION["prefTheme"] . '").setAttribute("selected", "");
+          </script>'
+        ?>
     </div>
     <?php 
       if($_SESSION['loggedIn'] == true){
