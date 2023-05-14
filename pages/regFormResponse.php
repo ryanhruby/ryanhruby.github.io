@@ -32,7 +32,7 @@ if($numRows > 0){
     exit("Sorry, that username is already in use. Please try a different username.");
 }
 
-$query2 = "INSERT INTO Users(username, password) VALUES (?,?);";
+$query2 = "INSERT INTO Users(username, password, themePref, clockPref, timezonePref) VALUES (?,?, 'light', '12hr', 'US/Central');";
 $ps2 = mysqli_stmt_init($db);
 mysqli_stmt_prepare($ps2, $query2);
 

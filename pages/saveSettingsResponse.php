@@ -33,6 +33,8 @@ if($success == false){
     exit("0:Sorry, an error occurred. Please try again later.");
 }
 
+mysqli_close($db);
+
 $_SESSION["timezone"] = $_POST["prefTimezone"];
 $_SESSION["prefClock"] = $_POST["prefClock"];
 $_SESSION["prefTheme"] = $_POST["prefTheme"];

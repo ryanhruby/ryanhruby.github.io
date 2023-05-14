@@ -19,6 +19,8 @@ function loginFormProcess() {
 function updatePageLogin() {
   if (xhr_log.readyState == 4) {
     alert(xhr_log.responseText);
+    timeProcess();
+    setCurrentTheme();
   }
 }
 
@@ -58,9 +60,10 @@ function logoutProcess() {
 
 function updatePageLogout() {
   if (xhr_out.readyState == 4) {
-    if (xhr_out.responseText == "Login status: false")
+    if (xhr_out.responseText == "Logged out") {
       document.getElementById("settingsDiv").setAttribute("hidden", "");
-    document.getElementById("loginDiv").removeAttribute("hidden");
-    alert("You have been successfully logged out.");
+      document.getElementById("loginDiv").removeAttribute("hidden");
+      alert("You have been successfully logged out.");
+    }
   }
 }
