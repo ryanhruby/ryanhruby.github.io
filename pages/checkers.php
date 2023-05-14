@@ -60,7 +60,88 @@ if(!isset($_SESSION["loggedIn"])) $_SESSION["loggedIn"] = false;
     <!-- Checkers Game -->
     <p></p>
     <h2>Checkers</h2>
-    <p>Under construction.</p>
+    <table id="board">
+        <tr>
+          <td class="white-background"></td>
+          <td class="blue-background"><img src="../images/black_piece.png" width="75" height="75"></td>
+          <td class="white-background"></td>
+          <td class="blue-background"></td>
+          <td class="white-background"></td>
+          <td class="blue-background"></td>
+          <td class="white-background"></td>
+          <td class="blue-background"></td>
+        </tr>
+        <tr>
+          <td class="blue-background"></td>
+          <td class="white-background"></td>
+          <td class="blue-background"></td>
+          <td class="white-background"></td>
+          <td class="blue-background"></td>
+          <td class="white-background"></td>
+          <td class="blue-background"></td>
+          <td class="white-background"></td>
+        </tr>
+        <tr>
+          <td class="white-background"></td>
+          <td class="blue-background"></td>
+          <td class="white-background"></td>
+          <td class="blue-background"></td>
+          <td class="white-background"></td>
+          <td class="blue-background"></td>
+          <td class="white-background"></td>
+          <td class="blue-background"></td>
+        </tr>
+        <tr>
+          <td class="blue-background"></td>
+          <td class="white-background"></td>
+          <td class="blue-background"></td>
+          <td class="white-background"></td>
+          <td class="blue-background"></td>
+          <td class="white-background"></td>
+          <td class="blue-background"></td>
+          <td class="white-background"></td>
+        </tr>
+        <tr>
+          <td class="white-background"></td>
+          <td class="blue-background"></td>
+          <td class="white-background"></td>
+          <td class="blue-background"></td>
+          <td class="white-background"></td>
+          <td class="blue-background"></td>
+          <td class="white-background"></td>
+          <td class="blue-background"></td>
+        </tr>
+        <tr>
+          <td class="blue-background"></td>
+          <td class="white-background"></td>
+          <td class="blue-background"></td>
+          <td class="white-background"></td>
+          <td class="blue-background"></td>
+          <td class="white-background"></td>
+          <td class="blue-background"></td>
+          <td class="white-background"></td>
+        </tr>
+        <tr>
+          <td class="white-background"></td>
+          <td class="blue-background"></td>
+          <td class="white-background"></td>
+          <td class="blue-background"></td>
+          <td class="white-background"></td>
+          <td class="blue-background"></td>
+          <td class="white-background"></td>
+          <td class="blue-background"></td>
+        </tr>
+        <tr>
+          <td class="blue-background"><img src="../images/white_piece.png" width="75" height="75"></td>
+          <td class="white-background"></td>
+          <td class="blue-background"></td>
+          <td class="white-background"></td>
+          <td class="blue-background"></td>
+          <td class="white-background"></td>
+          <td class="blue-background"></td>
+          <td class="white-background"></td>
+        </tr>
+    </table>
   </body>
   <!-- Easy access rating form footer on all pages -->
   <footer>  
